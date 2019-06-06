@@ -5,9 +5,10 @@
 if [ -s "$HOME/.rbenv/shims/ruby" ] && [ ! $(typeset -f i__init_rbenv 2>/dev/null | grep -q 'function') ]; then
 
   declare -a __ruby_commands=('rbenv')
-  __ruby_shims=($(ls $HOME/.rbenv/shims/))
+  declare -a __ruby_shims=($(ls $HOME/.rbenv/shims/))
   function __init_rbenv() {
     for i in "${__ruby_commands[@]}"; do unalias $i; done
+    for i in "${__ruby_shims[@]}"; do unalias $i; done
     eval "$(rbenv init -)"
     unset __ruby_commands
     unset __ruby_shims
