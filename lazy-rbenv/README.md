@@ -7,5 +7,5 @@ Initialises rbenv lazily. Only calls it when `rbenv`, `ruby`, `gem` or another r
 ## Usage
 
 - Remove the init scripts for rbenv from your .zshrc
-- Copy the plugin directory to `~/.oh-my-zsh/custom/` to leave you with `~/.oh-my-zsh/custom/lazy-rbenv/lazy-rbenv.plugin.sh`
+- Copy the plugin directory to `~/.oh-my-zsh/custom/plugins` to leave you with `~/.oh-my-zsh/custom/plugins/lazy-rbenv/lazy-rbenv.plugin.zsh`
 - Add `lazy-rbenv` to your plugins array in `~/.zshrc`
