@@ -7,5 +7,5 @@ Initialises nvm lazily. Only calls it when `nvm`, `node`, `npm` or another node 
 ## Usage
 
 - Remove the init scripts for nvm from your .zshrc
-- Copy the plugin directory to `~/.oh-my-zsh/custom/` to leave you with `~/.oh-my-zsh/custom/lazy-nvm/lazy-nvm.plugin.sh`
+- Copy the plugin directory to `~/.oh-my-zsh/custom/` to leave you with `~/.oh-my-zsh/custom/plugins/lazy-nvm/lazy-nvm.plugin.zsh`
 - Add `lazy-nvm` to your plugins array in `~/.zshrc`
