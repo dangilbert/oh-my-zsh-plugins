@@ -4,7 +4,17 @@
 
 if [ -s "$HOME/.rbenv/shims/ruby" ] && [ ! $(typeset -f i__init_rbenv 2>/dev/null | grep -q 'function') ]; then
 
-  declare -a __ruby_commands=('rbenv')
+  OIFS=$IFS;
+  IFS="|";
+  __external_ruby_commands=($LAZY_RBENV_COMMANDS);
+  IFS=$OIFS;
+
+  __ruby_commands=('rbenv')
+  
+  if [[ ${__external_ruby_commands[@]} ]]; then
+    __ruby_commands+=("${__external_ruby_commands[@]}")
+  fi
+
   declare -a __ruby_shims=($(ls $HOME/.rbenv/shims/))
   function __init_rbenv() {
     for i in "${__ruby_commands[@]}"; do unalias $i; done

@@ -8,6 +8,7 @@ Initialises rbenv lazily. Only calls it when `rbenv`, `ruby`, `gem` or another r
 
 - Remove the init scripts for rbenv from your .zshrc
 - Copy the plugin directory to `~/.oh-my-zsh/custom/plugins` to leave you with `~/.oh-my-zsh/custom/plugins/lazy-rbenv/lazy-rbenv.plugin.zsh`
+- Add `export LAZY_RUBY_COMMANDS="my|commands|here"` to your `~/.zshrc` before the plugins is initialised. Use `|` to separate the commands 
 - Add `lazy-rbenv` to your plugins array in `~/.zshrc`
 
 You can modify the array of commands that will trigger this script to run if you find something that requires ruby and isn't set properly

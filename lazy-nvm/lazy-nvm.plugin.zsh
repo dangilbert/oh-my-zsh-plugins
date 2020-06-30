@@ -4,7 +4,16 @@
 if [ -s "$HOME/.nvm/nvm.sh" ] && [ ! $(typeset -f __init_nvm 2>/dev/null | grep -q 'function') ]; then
   export NVM_DIR="$HOME/.nvm"
   [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"
-  declare -a __node_commands=('nvm' 'node' 'npm' 'yarn' 'gulp' 'grunt' 'webpack')
+  
+  OIFS=$IFS;
+  IFS="|";
+  __external_node_commands=($LAZY_NVM_COMMANDS);
+  IFS=$OIFS;
+  
+  __node_commands=('nvm' 'node' 'npm' 'yarn' 'gulp' 'grunt' 'webpack')
+  if [[ ${__external_node_commands[@]} ]]; then
+    __node_commands+=("${__external_node_commands[@]}")
+  fi
   function __init_nvm() {
     for i in "${__node_commands[@]}"; do unalias $i; done
     . "$NVM_DIR"/nvm.sh
